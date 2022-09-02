@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from database import conn
+from user_model import User
 from fastapi.middleware.cors import CORSMiddleware
 from bson import ObjectId
 
@@ -26,7 +27,7 @@ async def retorna_algo():
     return {"Olá":"Mundo"}
 
 @app.post('/cria')
-async def cria_usuario(user):
+async def cria_usuario(user: User):
     new_user = dict(user)
     idt = conn.local.user.insert_one(new_user).inserted_id
     usuario = conn.local.user.find_one({"_id":idt})
