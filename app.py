@@ -3,7 +3,7 @@ from .database import conn
 
 app = FastAPI()
 
-@app.get('/')
+@app.get('/usuario')
 async def retorna_algo():
     return {"Olá":"Mundo"}
 
