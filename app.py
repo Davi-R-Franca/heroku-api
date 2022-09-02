@@ -30,6 +30,6 @@ async def retorna_algo():
 @app.post('/cria')
 async def cria_usuario(user: User):
     new_user = dict(user)
-    idt = mydb.mycol.insert_one(new_user).inserted_id
-    usuario = mydb.mycol.find_one({"_id":idt})
-    return userEntity(usuario)
+    await mydb.mycol.insert_one(new_user).inserted_id
+    #usuario = mydb.mycol.find_one({"_id":idt})
+    return {"deu":"certo"}
