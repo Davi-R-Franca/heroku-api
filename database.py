@@ -1,3 +1,4 @@
 from pymongo import MongoClient
+import config
 
-conn = MongoClient()
+conn = MongoClient(config.mongodb_uri, config.port)
